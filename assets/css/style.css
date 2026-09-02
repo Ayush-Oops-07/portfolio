@@ -11,14 +11,21 @@
   text-transform: capitalize;
   transition: all 0.2s linear;
 }
-html {
+html, body {
   font-size: 62.5%;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   scroll-behavior: smooth;
 }
 body {
   background: #f7f7f7;
   font-family: "Poppins", sans-serif;
+  position: relative;
+}
+img, video, iframe, canvas {
+  max-width: 100%;
+  height: auto;
 }
 
 *::selection {
@@ -133,41 +140,50 @@ header .navbar ul li a:hover {
 @media (max-width: 768px) {
   #menu {
     display: block;
+    z-index: 1001;
+  }
+  header {
+    padding: 1.5rem 5%;
   }
   header .navbar {
     position: fixed;
     top: 6.5rem;
     right: -120%;
-    width: 75%;
-    height: 100%;
+    width: 80%;
+    max-width: 32rem;
+    height: calc(100vh - 6.5rem);
     text-align: left;
     align-items: flex-start;
     background-color: #0e0f31;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 1000;
   }
   header .navbar ul {
     flex-flow: column;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
+    width: 100%;
   }
   header .navbar ul li {
     text-align: center;
     width: 100%;
-    margin: 1rem 0;
-    border-radius: 0.5rem;
-    width: 26rem;
+    margin: 0.8rem 0;
   }
   header .navbar ul li a {
     display: block;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     text-align: left;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    width: 100%;
   }
   header .navbar ul li a.active,
   header .navbar ul li a:hover {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     color: #fff;
     border-radius: 0.5rem;
-    border-bottom: 0.5rem solid #011aff;
+    border-bottom: 0.4rem solid #011aff;
   }
   .fa-times {
     transform: rotate(180deg);
@@ -183,9 +199,13 @@ header .navbar ul li a:hover {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
   min-height: 100vh;
+  padding-top: 8.5rem; /* Space for fixed header */
+  padding-bottom: 4rem;
   align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 .home #particles-js {
   position: absolute;
@@ -193,6 +213,13 @@ header .navbar ul li a:hover {
   left: 0;
   height: 100%;
   width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.home #particles-js canvas {
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
 }
 .home::before {
   content: "";
@@ -201,59 +228,77 @@ header .navbar ul li a:hover {
   left: 0;
   height: 100%;
   width: 100%;
+  z-index: 0;
 }
 .home .content {
-  flex: 1 1 40rem;
+  flex: 1 1 42rem;
   padding-top: 1rem;
-  z-index: 1;
+  z-index: 2;
+  position: relative;
 }
 .home .image {
-  flex: 1 1 40rem;
-  z-index: 1;
+  flex: 1 1 38rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
 }
 .home .image img {
-  width: 70%;
-  margin-left: 6rem;
+  width: 75%;
+  max-width: 36rem;
+  height: auto;
+  margin: 0 auto;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  display: block;
 }
 .home .image img:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 .home .content h2 {
-  font-size: 5rem;
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
   font-weight: 800;
   color: #002057;
+  line-height: 1.25;
 }
 .home .content h2 span {
-  font-size: 5rem;
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
   font-weight: 800;
   color: #ff7b00;
 }
 .home .content p {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   color: #000;
   font-weight: 600;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
 }
 .home .content p span {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   color: rgb(148, 8, 8);
   font-weight: 600;
-  padding: 1rem 0;
+}
+.hero-btn-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
 }
 .home .btn {
-  margin-top: 1rem;
-  position: absolute;
-  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  position: relative;
+  line-height: 1;
   padding: 1.6rem 3rem;
   border-radius: 4em;
-  transition: 0.5s;
+  transition: 0.3s ease;
   color: #fff;
   background: #2506ad;
   box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
   font-family: "Nunito", sans-serif;
+  text-decoration: none;
 }
 .home .btn span {
   font-weight: 700;
@@ -326,7 +371,7 @@ header .navbar ul li a:hover {
 /* social icons start */
 .socials {
   position: relative;
-  margin-top: 11rem;
+  margin-top: 2rem;
 }
 .socials .social-icons {
   padding-left: 0;
@@ -379,24 +424,84 @@ header .navbar ul li a:hover {
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 450px) {
-  .home .btn {
-    margin: 4rem 0;
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 5%;
   }
-  .socials {
-    margin-top: 12rem;
+  .home {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 3rem;
+  }
+  .home .content {
+    flex: 1 1 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home .image {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-top: 1rem;
   }
   .home .image img {
-    margin-top: -12rem;
+    width: 65%;
+    max-width: 24rem;
+    margin: 0 auto;
   }
-  .home .content p {
-    font-size: 2.2rem;
+  .hero-founder-tag {
+    border-left: none;
+    border-top: 3px solid #ff7b00;
+    border-radius: 1rem;
+    margin: 1.5rem auto;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
-  .home .content p span {
-    font-size: 2.2rem;
+  .socials {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  .socials .social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-left: 0;
+  }
+  .socials .social-icons li {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 4%;
+  }
+  .home {
+    padding-top: 8rem;
+  }
+  .home .image img {
+    width: 75%;
+    max-width: 20rem;
+  }
+  .hero-founder-tag {
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+  }
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.8rem;
+    margin-right: 4px;
   }
 }
 /* hero media queries ends*/
+/* hero section end */
 /* hero section end */
 
 /* about section starts */
