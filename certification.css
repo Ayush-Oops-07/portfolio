@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+/* Reset + Globals */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  background: #f7f7f7;
+  font-family: 'Poppins', sans-serif;
+}
+*::selection {
+  background: #2b3dda;
+  color: #fff;
+}
+html::-webkit-scrollbar {
+  width: .8rem;
+}
+html::-webkit-scrollbar-track {
+  background: rgb(235, 202, 245);
+}
+html::-webkit-scrollbar-thumb {
+  background: #420177;
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.7rem 10%;
+  height: 6.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146,161,176,.3);
+}
+section {
+  min-height: 100vh;
+  padding: 2rem 9%;
+}
+.heading {
+  font-size: 3.5rem;
+  color: rgb(32, 32, 32);
+  font-weight: 800;
+  text-align: center;
+}
+.heading span {
+  color: rgb(115, 3, 167);
+}
+header .logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #0E2431;
+}
+header .logo i {
+  font-size: 2.2rem;
+}
+header .logo:hover {
+  color: #fc8c05;
+}
+header .navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .navbar li {
+  margin-left: 2.5rem;
+}
+header .navbar ul li a {
+  font-size: 1.57rem;
+  color: #0E2431;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04rem;
+}
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+  color: #011aff;
+  border-bottom: .2rem solid #011aff;
+  padding: .5rem 0;
+}
+
+/* Hamburger */
+#menu {
+  font-size: 3rem;
+  cursor: pointer;
+  color: rgb(24, 2, 63);
+  display: none;
+}
+@media(max-width:768px){
+  #menu {
+    display: block;
+  }
+  header .navbar {
+    position: fixed;
+    top: 6.5rem; right: -120%;
+    width: 75%;
+    height: 100%;
+    text-align: left;
+    align-items: flex-start;
+    background-color: #0e0f31;
+  }
+  header .navbar ul {
+    flex-flow: column;
+    padding: 1rem;
+  }
+  header .navbar ul li {
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    width: 26rem;
+  }
+  header .navbar ul li a {
+    display: block;
+    padding: 1rem;
+    text-align: left;
+    color: #fff;
+    font-size: 2rem;
+  }
+  header .navbar ul li a.active,
+  header .navbar ul li a:hover {
+    padding: 1rem;
+    color: #fff;
+    border-radius: .5rem;
+    border-bottom: .5rem solid #011aff;
+  }
+  .fa-times {
+    transform: rotate(180deg);
+  }
+  header .navbar.nav-toggle {
+    right: 0;
+  }
+}
+
+/* Certification Section */
+.certifications {
+  background: #f9f9fb;
+  padding: 10rem 9% 6rem; /* 👈 heading niche laya */
+  position: relative;
+}
+
+.certifications .heading {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.certifications .heading span {
+  color: #5a2d82;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.cert-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.cert-card img {
+  width: 100%;
+  height: 220px; /* 👈 zyada height diya */
+  object-fit: contain; /* 👈 image crop nahi hoga */
+  background: #fff; /* 👈 chhoti image ho to bhi clean lage */
+  padding: 0.8rem; /* thoda gap diya */
+  border-bottom: 1px solid #eee; /* clean separation */
+}
+
+.cert-card:hover img {
+  transform: scale(1.05);
+}
+
+.cert-card h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin: 1.2rem 1.5rem 0.5rem;
+  font-weight: 600;
+}
+.cert-card p {
+  font-size: 1.4rem;
+  color: #555;
+  font-family: "Nunito", sans-serif;
+  margin: 0 1.5rem 1.5rem;
+  line-height: 1.5;
+}
+
+/* Modal remains same as before */
+.cert-modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.cert-modal[aria-hidden="false"] {
+  display: flex;
+}
+.cert-modal img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+#certCaption {
+  margin-top: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.cert-modal .close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Back to home button */
+.backbtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+.backbtn .btn {
+  position: relative;
+  line-height: 0;
+  padding: 1.6rem 3rem;
+  border-radius: .5em;
+  transition: 0.3s;
+  color: #070303;
+  border: 2px solid #fff;
+  box-shadow: 0px 2px 4px rgba(48, 68, 247, .3);
+  text-align: center;
+}
+.backbtn .btn span {
+  font-weight: 600;
+  font-size: 1.7rem;
+  font-family: 'Nunito', sans-serif;
+}
+.backbtn .btn i {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.backbtn .btn:hover {
+  background: #ffffff;
+  color: #000;
+}
+.backbtn .btn:hover i {
+  transform: translateX(-8px);
+}
+
+/* Scroll top button */
+#scroll-top {
+  position: fixed;
+  top: -140%;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  background: #ffae00;
+  color: rgb(13, 0, 44);
+  border-radius: 5rem;
+  transition: 1s linear;
+  z-index: 1000;
+}
+#scroll-top.active {
+  top: calc(100% - 12rem);
+}
+/* Modal background */
+/* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+
+  /* flex se sab center me aayega */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Image */
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Caption text */
+#certCaption {
+  margin-top: 15px;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #f1f1f1;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 per row */
+  }
+}
+@media (max-width: 600px) {
+  .cert-grid {
+    grid-template-columns: 1fr; /* Mobile: 1 per row */
+  }
+}
+@media(max-width:450px){
+  html {
+    font-size: 55%;
+  }
+  section {
+    padding: 2rem;
+  }
+  .cert-card {
+    flex: 1 1 100%;
+  }
+}

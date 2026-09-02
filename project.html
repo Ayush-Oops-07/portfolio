@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="project.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png"/>
+  <title>Projects | Ayush Kumar Sharma</title>
+</head>
+<body oncontextmenu="return false">
+  
+<!-- navbar starts -->
+<header>
+  <a href="index.html" class="logo"><i class="fab fa-node-js"></i> Ayush</a>
+  <div id="menu" class="fas fa-bars"></div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#education">Education</a></li>
+      <li><a class="active" href="projects.html">Work</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- navbar ends -->
+
+<!-- work project section starts -->
+<section class="work" id="work">
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> All <span>Projects</span></h2>
+
+  <!-- Search and Filter Controls -->
+  <div class="project-controls">
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="project-search" placeholder="Search projects by name, technology, or description..." autocomplete="off">
+      <button id="clear-search" class="clear-btn" aria-label="Clear search"><i class="fas fa-times"></i></button>
+    </div>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">All Repositories</button>
+      <button class="filter-btn" data-category="featured">★ Featured</button>
+      <button class="filter-btn" data-category="python">Python</button>
+      <button class="filter-btn" data-category="typescript">TypeScript & JS</button>
+      <button class="filter-btn" data-category="ai-ml">AI & ML</button>
+      <button class="filter-btn" data-category="devops-cloud">Cloud & Security</button>
+      <button class="filter-btn" data-category="web">Web</button>
+    </div>
+  </div>
+
+  <div class="box-container">
+    <!-- Repositories loaded dynamically from GitHub API -->
+    <div class="project-card skeleton-card">
+      <div class="card-header"><div class="skeleton-box skeleton-icon"></div><div class="skeleton-box skeleton-badge"></div></div>
+      <div class="skeleton-box skeleton-title"></div>
+      <div class="skeleton-box skeleton-desc"></div>
+      <div class="skeleton-box skeleton-desc-short"></div>
+      <div class="card-meta"><div class="skeleton-box skeleton-badge"></div><div class="skeleton-box skeleton-badge"></div></div>
+    </div>
+    <div class="project-card skeleton-card">
+      <div class="card-header"><div class="skeleton-box skeleton-icon"></div><div class="skeleton-box skeleton-badge"></div></div>
+      <div class="skeleton-box skeleton-title"></div>
+      <div class="skeleton-box skeleton-desc"></div>
+      <div class="skeleton-box skeleton-desc-short"></div>
+      <div class="card-meta"><div class="skeleton-box skeleton-badge"></div><div class="skeleton-box skeleton-badge"></div></div>
+    </div>
+    <div class="project-card skeleton-card">
+      <div class="card-header"><div class="skeleton-box skeleton-icon"></div><div class="skeleton-box skeleton-badge"></div></div>
+      <div class="skeleton-box skeleton-title"></div>
+      <div class="skeleton-box skeleton-desc"></div>
+      <div class="skeleton-box skeleton-desc-short"></div>
+      <div class="card-meta"><div class="skeleton-box skeleton-badge"></div><div class="skeleton-box skeleton-badge"></div></div>
+    </div>
+    <div class="project-card skeleton-card">
+      <div class="card-header"><div class="skeleton-box skeleton-icon"></div><div class="skeleton-box skeleton-badge"></div></div>
+      <div class="skeleton-box skeleton-title"></div>
+      <div class="skeleton-box skeleton-desc"></div>
+      <div class="skeleton-box skeleton-desc-short"></div>
+      <div class="card-meta"><div class="skeleton-box skeleton-badge"></div><div class="skeleton-box skeleton-badge"></div></div>
+    </div>
+  </div>
+
+  <div class="backbtn">
+    <a href="index.html#work" class="btn">
+  <i class="fas fa-arrow-left"></i>
+  <span>Back to Home</span>
+</a>
+  </div>
+</section>
+<!-- work project section ends -->
+
+<!-- scroll top btn -->
+<a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
+
+<!-- ==== JS CDN ==== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script src="project.js"></script>
+
+</body>
+</html>
